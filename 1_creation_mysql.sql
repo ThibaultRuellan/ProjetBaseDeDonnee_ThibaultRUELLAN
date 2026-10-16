@@ -164,10 +164,10 @@ CREATE TABLE COMBAT (
     PRIMARY KEY (id_combat),
     CONSTRAINT fk_combat_joueur1
         FOREIGN KEY (id_joueur1) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_combat_joueur2
         FOREIGN KEY (id_joueur2) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_combat_tournoi
         FOREIGN KEY (id_tournoi) REFERENCES TOURNOI(id_tournoi)
         ON DELETE CASCADE ON UPDATE CASCADE,
@@ -187,10 +187,10 @@ CREATE TABLE ECHANGE (
     PRIMARY KEY (id_echange),
     CONSTRAINT fk_echange_emetteur
         FOREIGN KEY (id_emetteur) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_echange_receveur
         FOREIGN KEY (id_receveur) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT chk_echange_statut CHECK (statut IN ('en_attente','accepte','refuse'))
     -- Note : chk_echange_joueurs_differents supprimée (MySQL 8 interdit CHECK sur colonne FK avec action)
 );
@@ -208,10 +208,10 @@ CREATE TABLE PROPOSE (
         ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_propose_carte
         FOREIGN KEY (id_carte) REFERENCES CARTE(id_carte)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_propose_dresseur
         FOREIGN KEY (id_dresseur) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- ------------------------------------------------------------
@@ -227,10 +227,10 @@ CREATE TABLE RECOIT (
         ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_recoit_carte
         FOREIGN KEY (id_carte) REFERENCES CARTE(id_carte)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_recoit_dresseur
         FOREIGN KEY (id_dresseur) REFERENCES DRESSEUR(id_dresseur)
-        ON DELETE RESTRICT ON UPDATE CASCADE
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- ------------------------------------------------------------

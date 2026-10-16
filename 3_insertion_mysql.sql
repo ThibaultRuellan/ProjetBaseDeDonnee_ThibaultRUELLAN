@@ -5,7 +5,6 @@
 
 USE pokedex_tcg;
 
-SET FOREIGN_KEY_CHECKS = 0;
 
 -- ------------------------------------------------------------
 -- EDITIONS
@@ -223,4 +222,3 @@ INSERT INTO AVIS (id_dresseur, id_carte, note, commentaire) VALUES
 (9,  'JNG-004',  5, 'Lokhlass holo, illustration iconique de la Jungle.'),
 (10, 'BASE-001', 5, 'Dracaufeu, le must-have ultime de toute collection.');
 
-SET FOREIGN_KEY_CHECKS = 1;

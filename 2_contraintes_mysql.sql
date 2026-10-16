@@ -15,10 +15,10 @@ ALTER TABLE DRESSEUR
 ADD CONSTRAINT chk_email_format
 CHECK (email LIKE '%_@_%._%');
 
--- Mot de passe non vide et suffisamment long
+-- Mot de passe non vide et au moins 8 caractères
 ALTER TABLE DRESSEUR
 ADD CONSTRAINT chk_mot_de_passe
-CHECK (CHAR_LENGTH(mot_de_passe) >= 4);
+CHECK (CHAR_LENGTH(mot_de_passe) >= 8);
 
 -- Nom de l'édition non vide
 ALTER TABLE EDITION
@@ -129,9 +129,9 @@ ORDER BY tc.TABLE_NAME, tc.CONSTRAINT_NAME;
 -- DELETE FROM EDITION WHERE id_edition = 'JNG';
 -- SELECT * FROM CARTE WHERE id_edition = 'JNG';
 
--- TEST 13 : ON DELETE RESTRICT
--- La suppression d'un dresseur utilisé dans COMBAT
--- doit être refusée.
+-- TEST 13 : ON DELETE CASCADE
+-- La suppression d’un dresseur efface aussi les lignes qui le référencent.
+-- Ne pas exécuter sur la base utilisée pour les autres tests.
 -- DELETE FROM DRESSEUR WHERE id_dresseur = 1;
 
 -- ============================================================

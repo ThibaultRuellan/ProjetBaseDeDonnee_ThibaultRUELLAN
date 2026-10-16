@@ -1,4 +1,3 @@
-[READMEf.md](https://github.com/user-attachments/files/33565392/READMEf.md)
 # TI503N – Mini-projet de base de données : PokéDex TCG
 
 ## Présentation du domaine
@@ -119,6 +118,12 @@ Le MCD utilise plusieurs éléments de modélisation avancée :
 
 ---
 
+### Périmètre du modèle
+
+La base stocke un type élémentaire principal par Pokémon. Le statut d'un échange est enregistré, sans gérer séparément la réponse de chaque joueur. Ces choix simplifient le fonctionnement de cette première version.
+
+---
+
 ## Étape 3 : MLD
 
 Le MLD est obtenu à partir du MCD. Les associations plusieurs-à-plusieurs deviennent des tables de liaison. Les noms `COLLECTION`, `PROPOSE` et `RECOIT` sont conservés dans les scripts SQL : ils correspondent respectivement à `POSSEDE`, `CARTE_PROPOSEE` et `CARTE_RECUE` dans le MCD.
@@ -188,7 +193,7 @@ Les informations sur les dresseurs, les cartes, les Pokémon, les éditions et l
 Les données ont été générées avec une IAG en utilisant le prompt disponible dans `prompt_insertion.txt`.
 
 Le script d'insertion est disponible dans `3_insertion_mysql.sql`. Il contient :
-- 12 éditions officielles
+- 12 éditions de cartes
 - 20 Pokémon avec leurs types élémentaires
 - 24 cartes couvrant plusieurs raretés et générations
 - 10 dresseurs avec des scores ELO variés
@@ -294,6 +299,12 @@ Calcul théorique du nombre d'instructions :
 Le **plan 2 est le plus efficace dans ce modèle théorique** : filtrer les tournois parisiens dès le début réduit les tailles des résultats intermédiaires et donc le coût des jointures. Le plan 2 nécessite **384 instructions de moins** que le plan 1. Les deux plans produisent le même résultat de 12 lignes.
 
 Le calcul suit la méthode de l'**exercice 6 du TD3** : une jointure de deux relations de tailles *n1* et *n2* coûte *n1 × n2* instructions ; une sélection ou une projection d'une relation de *n* lignes coûte *n* instructions. Il s'agit d'une estimation pédagogique simplifiée, sans prise en compte des index ni des optimisations internes de MySQL.
+
+---
+
+## Exécution des scripts
+
+Exécuter les fichiers dans cet ordre sur MySQL 8 : `1_creation_mysql.sql`, `2_contraintes_mysql.sql`, `3_insertion_mysql.sql`, puis `4_interrogation_mysql.sql`. Le script 1 recrée les tables : il efface les données précédemment enregistrées. Les contraintes de validation sont ajoutées après la création des tables.
 
 ---
 
