@@ -233,15 +233,3 @@ Le fichier SQL est disponible dans `4_interrogation_mysql.sql`.
 
 
 ---
-
-## À compléter pour TI503N (2026–2027)
-
-> Ce dépôt reprend les fichiers d'un ancien projet. La réutilisation doit être validée par l'enseignante. Les scripts SQL n'ont pas encore été exécutés dans ce nouveau rendu.
-
-- [ ] Vérifier le MCD, sa 3FN et ses associations avancées.
-- [ ] Tester les scripts MySQL sur une base vierge, dans l'ordre 1 à 4.
-- [ ] Adapter `2_contraintes_mysql.sql` : il contient aujourd'hui surtout des requêtes de consultation et des tests commentés, et non des `ALTER TABLE` ajoutant les contraintes.
-- [ ] Examiner les `ON DELETE RESTRICT` et leur conformité à la consigne du MPD.
-- [ ] Ajouter l'étude de deux plans d'exécution en algèbre relationnelle avec les cardinalités et coûts.
-- [ ] Vérifier les 20 requêtes par catégorie et les résultats.
-- [ ] Créer et déposer la vidéo (maximum 12 min) sur Moodle/Panopto à l'échéance prévue.
